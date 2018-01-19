@@ -1,7 +1,5 @@
 (function( $ ) {
-
   $.fn.webtorrent = function( options ) {
-
     if( typeof options === 'undefined' ) {
       options = {};
     }
@@ -17,7 +15,6 @@
     if( typeof options.events === 'undefined' ) {
       options.events = {};
     }
-
     var $elems = this.find( '[data-torrent-file]' );
     options.client.add( options.torrentId, options.opts, function( torrent ) {
       $.each( options.events, function( event, handler ) {
@@ -29,9 +26,6 @@
         } ).renderTo( elem );
       } );
     } );
-
   };
-
   $( '[data-toggle="webtorrent"]' ).webtorrent();
-
 }( jQuery ));
