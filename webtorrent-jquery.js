@@ -15,14 +15,14 @@
     if( typeof options.events === 'undefined' ) {
       options.events = {};
     }
-    var $elems = this.find( '[data-torrent-file]' );
+    var $elems = this.find( '[data-filename]' );
     options.client.add( options.torrentId, options.opts, function( torrent ) {
       $.each( options.events, function( event, handler ) {
         torrent.on( event, handler );
       } );
       $elems.each( function( key, elem ) {
         torrent.files.find( function( file ) {
-          return file.name === $( elem ).data( 'torrent-file' );
+          return file.name === $( elem ).data( 'filename' );
         } ).renderTo( elem );
       } );
     } );
